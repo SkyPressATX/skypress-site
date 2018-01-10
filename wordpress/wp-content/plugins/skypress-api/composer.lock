@@ -4,7 +4,6 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "76198fcdadafacb993247fbb6933ef1f",
     "content-hash": "ad1ddae70dd5b39657061a7383a77bb7",
     "packages": [
         {
@@ -51,7 +50,7 @@
             ],
             "description": "A simple library to encode and decode JSON Web Tokens (JWT) in PHP. Should conform to the current spec.",
             "homepage": "https://github.com/firebase/php-jwt",
-            "time": "2017-06-27 22:17:23"
+            "time": "2017-06-27T22:17:23+00:00"
         },
         {
             "name": "skypress/war-api-plugin",
@@ -59,12 +58,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/SkyPressATX/war-api-plugin.git",
-                "reference": "caf55ffef103521bdafb763eb15c7b4a5cd735fa"
+                "reference": "440817309ffdb4427d6e8c26dfd353c9898c8aad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SkyPressATX/war-api-plugin/zipball/caf55ffef103521bdafb763eb15c7b4a5cd735fa",
-                "reference": "caf55ffef103521bdafb763eb15c7b4a5cd735fa",
+                "url": "https://api.github.com/repos/SkyPressATX/war-api-plugin/zipball/440817309ffdb4427d6e8c26dfd353c9898c8aad",
+                "reference": "440817309ffdb4427d6e8c26dfd353c9898c8aad",
                 "shasum": ""
             },
             "require": {
@@ -88,7 +87,7 @@
                 }
             ],
             "description": "Library to help extend the WordPress Rest API",
-            "time": "2018-01-04 19:33:25"
+            "time": "2018-01-10T03:36:58+00:00"
         }
     ],
     "packages-dev": [],
