@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 #Author: BMO & Antpb
 #Version: 0.3.0-alpha
 
@@ -20,7 +20,7 @@ assign-opts() {
 			D)
 				deploy_from_local_branch=$OPTARG;;
 			f)
-				force_push=true;;
+				force_push="-f";;
 			m)
 				commit_message=$OPTARG;;
 			p)
@@ -98,7 +98,7 @@ check-config (){
 				"global_composer_path")
 					echo ${v}'="/usr/local/bin/composer"' >> ${config_file};;
 				"force_push")
-					echo ${v}'=false' >> ${config_file};;
+					echo ${v}'=""' >> ${config_file};;
 				"prefix_path")
 					echo ${v}'="wordpress"' >> ${config_file};;
 				"temp_branch")
