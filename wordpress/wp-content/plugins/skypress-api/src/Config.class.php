@@ -19,8 +19,7 @@ class Config {
                 'id',
                 'created_on',
                 'updated_on'
-            ],
-            'isolate_user_data'     => false
+            ]
         ];
     }
 
