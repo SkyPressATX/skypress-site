@@ -1,11 +1,17 @@
+/** Angular Modules **/
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+/** Custom Modules **/
 import { WpClientModule } from '@skypress/wp-client';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AppRoutingModule } from './app-routing.module';
+import { ShellModule } from './shell/shell.module';
+import { HomeModule } from './home/home.module';
+import { BlogModule } from './blog/blog.module';
 
-import { SkyLayoutModule, SkyRoutes } from './sky-layout/sky-layout.module';
+/** Components **/
 import { AppComponent } from './app.component';
 
 
@@ -15,10 +21,12 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    SkyLayoutModule,
+    ShellModule,
+    HomeModule,
+    BlogModule,
     NgbModule.forRoot(),
     WpClientModule.forRoot( 'warObject' ),
-    RouterModule.forRoot( SkyRoutes )
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

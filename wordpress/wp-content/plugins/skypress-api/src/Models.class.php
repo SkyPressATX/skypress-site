@@ -15,7 +15,7 @@ class Models {
 				// 'access' => false,
 				'access' => [
 					'create' => false,
-					'read'   => false,
+					'read'   => 'create_users',
 					'update'   => 'create_users',
 					'delete'   => 'create_users',
 				],

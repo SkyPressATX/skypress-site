@@ -1,1 +1,73 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'assets/ionicons/css/ionicons.min.css';
+
+html, body {
+    height: 100%;
+}
+
+.bg-transparent {
+    background-color: transparent !important;
+}
+
+.stars {
+    background: url('//skypress.io/wp-content/uploads/2017/08/stars.png') repeat top center;
+    z-index:-10;
+}
+
+.min-height-1 {
+    min-height: 10rem;
+}
+.min-height-1-5 {
+    min-height: 15rem;
+}
+.min-height-2 {
+    min-height: 20rem;
+}
+.min-height-2-5 {
+    min-height: 25rem;
+}
+.min-height-3 {
+    min-height: 30rem;
+}
+.min-height-3-5 {
+    min-height: 35rem;
+}
+.min-height-4 {
+    min-height: 40rem;
+}
+.min-height-4-5 {
+    min-height: 45rem;
+}
+.min-height-5 {
+    min-height: 50rem;
+}
+.min-height-5-5 {
+    min-height: 55rem;
+}
+.min-height-6 {
+    min-height: 60rem;
+}
+.min-height-6-5 {
+    min-height: 65rem;
+}
+.min-height-7 {
+    min-height: 70rem;
+}
+.min-height-7-5 {
+    min-height: 75rem;
+}
+.min-height-8 {
+    min-height: 80rem;
+}
+.min-height-8-5 {
+    min-height: 85rem;
+}
+.min-height-9 {
+    min-height: 90rem;
+}
+.min-height-9-5 {
+    min-height: 95rem;
+}
+.min-height-10 {
+    min-height: 100rem;
+}

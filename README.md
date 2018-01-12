@@ -1,5 +1,5 @@
-# WAR Framework
-This repo holds the build and local development functions for new projects
+# SkyPress.io Development Repository
+This repo holds the build and local development files for the SkyPress website
 
 *v0.3.0-alpha*
 
@@ -13,18 +13,19 @@ This repo holds the build and local development functions for new projects
 
 *This document places <example> snippets within it's code. These <examples> are what you will need to changed with your own custom values*
 
-## Step 1: Clone Repo
+## Clone Repo
 
-To get you project started with the WAR Framework, clone this repo into a new directory. Once cloned, all other commands should be ran from within `<directory-to-my-app>`
+To get started, clone this repo into a new directory. Once cloned, all other commands should be ran from within the `skypress` directory
 
 ```
-git clone https://github.com/SkyPressATX/war-framework.git <directory-to-my-app>
-cd <directory-to-my-app>
+git clone https://github.com/SkyPressATX/skypress-site skypress
+cd skypress
+git checkout -b <my new branch name>
 ```
 
-## Step 2: Setup local WordPress with Docker
+## Setup local WordPress with Docker
 
-Included in the WAR Framework is a basic `docker-compose.yml` that will setup WordPress, MySQL, and PHPMyAdmin
+Included is a basic `docker-compose.yml` that will setup WordPress, MySQL, and PHPMyAdmin
 
 ```
 docker-compose up -d
@@ -40,73 +41,43 @@ Once all containers are up, navigate to `http://localhost:8080` in your web brow
 sudo find wordpress -type d -exec chmod 775 {} \; && sudo find wordpress -type f -exec chmod 664 {} \;
 ```
 
-## Step 3: Initialize your project with the WAR-cli
+## Activate Plugin and Theme
 
-The WAR Framework comes with basic CLI to help keep things uniform. This is the `war.sh` script, and it's corresponding `war-cli.config` config file.
+The `skypress-api` and `skypress-theme` need to be activated now. Use the proper steps in `http://localhost:8080/wp-admin` to do so.
 
-```
-./war.sh init <my-app-name>
-```
+## Watch Angular changes, build when done
 
-The `init` command will:
-
-* Set proper variables in `war-cli.config`
-* Rename the starter plugin to `wordpress/wp-content/plugins/<my-app-name-api>` and it's main `.php` file to `<my-app-name-api>.php`
-* Run `composer install` in `wordpress/wp-content/plugins/<my-app-name-api>`
-* Rename the starter theme to `wordpress/wp-content/themes/<my-app-name-theme>`
-* Run `composer install` in `wordpress/wp-content/themes/<my-app-name-theme>`
-* Create a new Angular Project in `angular/<my-app-name-theme>`
-* Run `yarn add @skypress/wp-client@latest` in `angular/<my-app-name-theme>`
-* Set proper `outDir` and `prefix` values in `angular/<my-app-name-theme>/.angular-cli.json`
-
-_The `init` command will **not**_
-
-* Edit comment blocks in `wordpress/wp-content/plugins/<my-app-name-api>/<my-app-name-api>.php`
-* Edit comment blocks in `wordpress/wp-content/themes/<my-app-name-theme>/style.css`
-
-## Step 4: Set up remote git repositories
-
-In order to version control you new project, you will need to setup your own remote git repositories. We recommend having at least 2 different repo's:
-
-* A Dev or Pre-Build repo. This is where you can push, pull, and others can contribute to your project and code. This is not your Live or Production version.
-* A Prod or Live repo. This should be a highly restricted repo where few people can push to. This should also be where your built project should be served to the rest of the world (IE: Your hosting provider)
+As you make changes to the Angular piece, you can use the Angular CLI to hot reload your browser
 
 ```
-git remote add <dev> <git@github.com:<your-git-user>/<repo-name>.git
-git remote add <prod> <git@<git.myhost.com>:production/<repo-name>.git
+cd angular/skypress-theme
+ng serve
 ```
 
-## Step 5: Build your App
+This spins up **Only** the Angular application at `http://localhost:4200` _note the different port from our docker container_
 
-You are setup! Now you can build out your application. Here are some tips to help you along the way:
-
-* Use `ng generate` in your Angular project (`angular/<my-app-name-theme>`) to quickly build components, modules, etc ...
-* Use `ng serve` to get a fresh version of your pre-build angular app in `http://localhost:4200`
-* Once your template is set, and you are ready to pipe in data from the WordPress REST API, use `ng build --watch`
- * _Please note, my success with this has been decent at best. You may want to just run `ng build` after each change_
-
-## Step 6: Deploy your App
-
-Alright, everything is looking great and you are ready to deploy live, but you've got a main repo pushing your un-built site to your dev repo. Use the WAR CLI to properly split out the WordPress parts of your project and push them to your remote Production repo
+Once you've got your changes sorted out, build the Angular app
 
 ```
-./war.sh deploy -a -r <prod> -c "My commit message"
+yarn build
 ```
 
-##### Flags
-
-* `-a` Build your Angular app
-* `-r <prod>` Is the name you gave your remote production repo. See `git remote -v` for the full list of your added repo names
-* `-c "My commit message"` The message you would like to see in your commit
-
-_Want to stop using these flags every time? Have errors about the composer command not being found? Edit the `war-cli.config` file!_
-
-## Step 7: (Optional) Update Project
-
-We've made some updates that you'd like to use, but you don't want to overwrite your changes to this project. A `git pull origin master` would certainly do that. Use the WAR CLI instead:
+**-- OR --**
 
 ```
-./war.sh upgrade
+ng build --prod
 ```
 
-This will use `git` to pull in the specific files that aren't relative to your project, instead of the entire framework. Made changes to some files this command updates? Remove them from the `war-cli.config` option `upgrade_include`
+_`yarn build` simply fires off `ng build --prod`_
+
+This will place the transpiled `.js` files and the `assets` directory in `wordpress/wp-content/themes/skypress-theme/src/`
+
+## Commit and Push changes
+
+Once built, you can push your changes back to the Dev repo on Github
+
+```
+git add . --all
+git commit -am '<My Message>'
+git push origin <my new branch name>
+```
