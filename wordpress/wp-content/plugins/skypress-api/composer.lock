@@ -58,12 +58,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/SkyPressATX/war-api-plugin.git",
-                "reference": "dbcfcb5484ca24e0af3d250ea051ba8b266ff0c9"
+                "reference": "440817309ffdb4427d6e8c26dfd353c9898c8aad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SkyPressATX/war-api-plugin/zipball/dbcfcb5484ca24e0af3d250ea051ba8b266ff0c9",
-                "reference": "dbcfcb5484ca24e0af3d250ea051ba8b266ff0c9",
+                "url": "https://api.github.com/repos/SkyPressATX/war-api-plugin/zipball/440817309ffdb4427d6e8c26dfd353c9898c8aad",
+                "reference": "440817309ffdb4427d6e8c26dfd353c9898c8aad",
                 "shasum": ""
             },
             "require": {
@@ -87,7 +87,7 @@
                 }
             ],
             "description": "Library to help extend the WordPress Rest API",
-            "time": "2018-01-10T05:20:25+00:00"
+            "time": "2018-01-10T03:36:58+00:00"
         }
     ],
     "packages-dev": [],
