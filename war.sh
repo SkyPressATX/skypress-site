@@ -62,7 +62,7 @@ deploy (){
 	fi
 
 	echo -e "${br}Splitting out WordPress into temporary branch"
-	git subtree split --prefix=${prefix_path} -b ${temp_branch} && git checkout ${temp_branch}
+	git subtree split --prefix=${prefix_path} -B ${temp_branch} && git checkout ${temp_branch}
 
 	echo -e "${br}Running composer install for plugins and themes"
 	find wp-content -maxdepth 3 -iname "composer.json" -type f -execdir php ${global_composer_path} install --no-dev --prefer-source -o \;
